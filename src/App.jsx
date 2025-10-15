@@ -13,6 +13,8 @@ import Box from '@mui/material/Box'
 import LightModeIcon from '@mui/icons-material/LightMode'
 import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined'
 import SettingsBrightnessIcon from '@mui/icons-material/SettingsBrightness'
+import Container from '@mui/material/Container'
+import theme from './theme'
 
 function SelectModeDarkLight() {
 
@@ -54,22 +56,35 @@ function SelectModeDarkLight() {
 
 function App() {
   return (
-    <>
-      <SelectModeDarkLight/>
-      <hr />
-      <div>New game oniro!</div>
-      <Button variant="text">Text</Button>
-      <Button variant="contained">Contained</Button>
-      <Button variant="outlined">Outlined</Button>
-      <ThreeDRotation/>
-      <HomeIcon />
-      <HomeIcon color="primary" />
-      <HomeIcon color="secondary" />
-      <HomeIcon color="success" />
-      <HomeIcon color="action" />
-      <HomeIcon color="disabled" />
-      <HomeIcon sx={{ color: pink[500] }} />
-    </>
+    <Container disableGutters maxWidth={false} sx={{ height: '100vh' }}>
+      <Box sx={{
+        width: '100%',
+        height: (theme) => theme.trello.appBarHeight,
+        backgroundColor: 'primary.light',
+        display: 'flex',
+        alignItems: 'center'
+      }}>
+        <SelectModeDarkLight/>
+      </Box>
+      <Box sx={{
+        width: '100%',
+        height: (theme) => theme.trello.boardBarHeight,
+        backgroundColor: 'primary.dark',
+        display: 'flex',
+        alignItems: 'center'
+      }}>
+        board bar
+      </Box>
+      <Box sx={{
+        width: '100%',
+        height: (theme) => `calc(100vh - ${theme.trello.appBarHeight} - ${theme.trello.boardBarHeight})`,
+        backgroundColor: 'primary.main',
+        display: 'flex',
+        alignItems: 'center'
+      }}>
+        content bar
+      </Box>
+    </Container>
   )
 }
 
