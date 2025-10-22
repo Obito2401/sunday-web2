@@ -1,5 +1,5 @@
 import Box from '@mui/material/Box'
-
+import FavoriteTwoToneIcon from '@mui/icons-material/FavoriteTwoTone'
 function BoardContent() {
   return (
     <Box sx={{
@@ -9,7 +9,10 @@ function BoardContent() {
       display: 'flex',
       alignItems: 'center'
     }}>
-        content bar
+      <Box sx={{textAlign:'center'}}>
+        Anh yeu em lắm 
+        <FavoriteTwoToneIcon fontSize='large'/>
+      </Box>
     </Box>
   )
 }
