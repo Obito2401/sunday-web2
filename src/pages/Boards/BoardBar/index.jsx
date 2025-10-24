@@ -1,15 +1,99 @@
+import Chip from '@mui/material/Chip'
 import Box from '@mui/material/Box'
+import Button from '@mui/material/Button'
+import DashboardIcon from '@mui/icons-material/Dashboard'
+import VpnLockIcon from '@mui/icons-material/VpnLock'
+import AddToDriveIcon from '@mui/icons-material/AddToDrive'
+import BoltIcon from '@mui/icons-material/Bolt'
+import FilterListIcon from '@mui/icons-material/FilterList'
+import Avatar from '@mui/material/Avatar'
+import AvatarGroup from '@mui/material/AvatarGroup'
+import Tooltip from '@mui/material/Tooltip'
+import PersonAddIcon from '@mui/icons-material/PersonAdd'
+
+const MENU_STYLE = {
+  color: 'primary.main',
+  bgcolor: 'white',
+  border: 'none',
+  paddingX: '5px',
+  borderRadius: '4px',
+  '& .MuiSvgIcon-root': {
+    color: 'primary.main'
+  },
+  '&:hover': {
+    bgcolor: 'primary.50'
+  }
+}
 
 function BoardBar() {
   return (
     <Box sx={{
       width: '100%',
       height: (theme) => theme.trello.boardBarHeight,
-      backgroundColor: 'primary.dark',
       display: 'flex',
-      alignItems: 'center'
+      alignItems: 'center',
+      justifyContent:'space-between',
+      gap: 2,
+      overflowX: 'auto',
+      borderTop: '1px solid #00fa5',
+      paddingX: '5px'
     }}>
-        board bar
+      <Box sx={{ display: 'flex', alignItems:'center', gap: 2 }}>
+        <Chip sx={MENU_STYLE}
+          icon={<DashboardIcon/>}
+          label="Dash Board"
+          clickable
+        />
+        <Chip sx={MENU_STYLE}
+          icon={<VpnLockIcon/>}
+          label="Public/Private Workspace"
+          clickable
+        />
+        <Chip sx={MENU_STYLE}
+          icon={<AddToDriveIcon/>}
+          label="Add To Google Drive"
+          clickable
+        />
+        <Chip sx={MENU_STYLE}
+          icon={<BoltIcon/>}
+          label="Automation"
+          clickable
+        />
+        <Chip sx={MENU_STYLE}
+          icon={<FilterListIcon/>}
+          label="Filter"
+          clickable
+        />
+      </Box>
+      <Box sx={{ display: 'flex', alignItems:'center', gap: 2 }}>
+        <Button variant="outlined" startIcon={<PersonAddIcon/>}>Invite</Button>
+        <AvatarGroup
+          max={4}
+          sx={{
+            '& .MuiAvatar-root': {
+              width: 30,
+              height: 30,
+              fontSize: 16
+            }
+          }}
+        >
+          <Tooltip>
+            <Avatar alt="Remy Sharp" src="" />
+          </Tooltip>
+          <Tooltip>
+            <Avatar alt="Travis Howard" src="" />
+          </Tooltip>
+          <Tooltip>
+            <Avatar alt="Cindy Baker" src="" />
+          </Tooltip>
+          <Tooltip>
+            <Avatar alt="Agnes Walker" src="" />
+          </Tooltip>
+          <Tooltip>
+            <Avatar alt="Trevor Henderson" src="" />
+          </Tooltip>
+        </AvatarGroup>
+      </Box>
     </Box>
   )
 }
