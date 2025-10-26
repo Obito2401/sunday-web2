@@ -10,6 +10,7 @@ import Avatar from '@mui/material/Avatar'
 import AvatarGroup from '@mui/material/AvatarGroup'
 import Tooltip from '@mui/material/Tooltip'
 import PersonAddIcon from '@mui/icons-material/PersonAdd'
+import { capitalizeFirstLetter } from '~/utils/formatters'
 
 const MENU_STYLE = {
   color: 'white',
@@ -25,7 +26,10 @@ const MENU_STYLE = {
   }
 }
 
-function BoardBar() {
+function BoardBar(props) {
+  const { board } = props
+  // const board = props.board
+  // hoac su dung { board } thay cho props dau function vi truong hop nay chi truyen 1 prop
   return (
     <Box sx={{
       width: '100%',
@@ -37,19 +41,18 @@ function BoardBar() {
       overflowX: 'auto',
       bgcolor: (theme) => (theme.palette.mode == 'dark' ? '#34495e' : '#1976d2'),
       //borderBottom: '1px solid #00fa5',
-      borderBottom: '1px solid white',
       paddingX: '5px',
       '&::-webkit-scrollbar-track': { m: 2 }
     }}>
       <Box sx={{ display: 'flex', alignItems:'center', gap: 2 }}>
         <Chip sx={MENU_STYLE}
           icon={<DashboardIcon/>}
-          label="Dash Board"
+          label= {board?.title}
           clickable
         />
         <Chip sx={MENU_STYLE}
           icon={<VpnLockIcon/>}
-          label="Public/Private Workspace"
+          label={capitalizeFirstLetter(board?.type)}
           clickable
         />
         <Chip sx={MENU_STYLE}
