@@ -20,9 +20,24 @@ import theme from '~/theme'
 import ListCards from './ListCards/ListCards'
 import { mapOrder } from '~/utils/sorts'
 
+import { useSortable } from '@dnd-kit/sortable'
+import { CSS } from '@dnd-kit/utilities'
 
 function Column(props) {
   const { column } = props
+
+  // drag and drag columns
+  const { attributes, listeners, setNodeRef, transform, transition } = useSortable({
+    id: column._id,
+    data: { ...column }
+  })
+  const dndKitColumnStyle = {
+    //touchAction: 'none', //danh cho sensor  default dang sensorPoint
+    transform: CSS.Translate.toString(transform),
+    transition
+  }
+
+  //dropdown menu
   const orderedCard = mapOrder(column?.cards, column?.cardOrderIds, '_id')
   const [anchorEl, setAnchorEl] = useState(null)
   const open = Boolean(anchorEl)
@@ -32,16 +47,22 @@ function Column(props) {
   const handleClose = () => {
     setAnchorEl(null)
   }
+
   return (
-    <Box sx={{
-      minWidth: '300px',
-      maxWidth: '300px',
-      bgcolor: (theme) => (theme.palette.mode == 'dark' ? '#333643' : '#ebecf0'),
-      ml: 2,
-      borderRadius: '6px',
-      height: 'fit-content',
-      maxHeight: () => `calc(${theme.trello.boardContentHeight} - ${theme.spacing(5)})`
-    }}>
+    <Box
+      ref={setNodeRef}
+      style = {dndKitColumnStyle}
+      {...attributes}
+      {...listeners}
+      sx={{
+        minWidth: '300px',
+        maxWidth: '300px',
+        bgcolor: (theme) => (theme.palette.mode == 'dark' ? '#333643' : '#ebecf0'),
+        ml: 2,
+        borderRadius: '6px',
+        height: 'fit-content',
+        maxHeight: () => `calc(${theme.trello.boardContentHeight} - ${theme.spacing(5)})`
+      }}>
       {/* box column hearder */}
       <Box
         sx={{
