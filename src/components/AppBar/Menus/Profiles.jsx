@@ -34,7 +34,7 @@ function Profiles() {
           <Avatar
             sx={{ width: 30, height: 30 }}
             alt='XuanTranDev'
-            src='https://scontent.fhan5-9.fna.fbcdn.net/v/t39.30808-1/559208417_122105676435045160_2103911497491982084_n.jpg?stp=cp0_dst-jpg_s40x40_tt6&_nc_cat=110&ccb=1-7&_nc_sid=e99d92&_nc_ohc=MgLb48kFLlkQ7kNvwEPN-xU&_nc_oc=Adm0_lectXQNJ4z8EXpvyE5uYG_xfwOmhwZh5cye1smhk7wl1bUz6MRfMZLC1vfV3jXLZC4OJaFGvECg9TLPbgXZ&_nc_zt=24&_nc_ht=scontent.fhan5-9.fna&_nc_gid=rQs3R1LnRyDH_q_A9lYRiA&oh=00_AfcvZQ5GzVDhkTS1SMNsiP9R0EefxvBxPI95CeuHLD5kmQ&oe=68FE65D1'
+            src='https://avatars.githubusercontent.com/u/235670173?v=4'
           />
         </IconButton>
       </Tooltip>
